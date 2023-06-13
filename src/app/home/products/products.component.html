@@ -1,0 +1,42 @@
+<div class="search" *ngIf="token!==null" >
+        <div class="col-md-6">  
+            <div class="input-group mb-3">
+               <input type="text" class="form-control input-text" placeholder="Search products... by id, name, brand" aria-label="Recipient's username" aria-describedby="basic-addon2" #myInput>
+            </div>   
+        </div>
+</div>
+<div class="container">
+       <tr *ngFor="let product of arrayProducts;let i=index" class="card">
+                <div class="image-container">
+                    <div class="first">   
+                        <span>{{product.brand}} - {{product.productCode}}</span>							
+                    </div>
+                    <img [src]="product.image" class="img-fluid rounded thumbnail-image" (click)="getById(product.pro_id,i)">
+                </div>
+                <div class="product-detail-container p-2">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <h3 class="dress-name">{{product.name}} <br></h3>
+                            <br>
+                            <div class="d-flex flex-column mb-2">
+                                <button class="btn btn-warning">₹ {{product.price}}</button>
+                            </div><br>
+                        </div>
+                        <div class="description">
+                            <p>{{product.description}}</p>
+                        </div>
+                        <!-- <tr *ngFor="let reviewRating of product.reviewsList"> -->
+                             <div class="d-flex justify-content-between align-items-center pt-1">
+                                <ngb-rating [max]="5" [(rate)]="product.reviewsList[0].rating" (hover)="hovered=$event" (leave)="hovered=0" #rating></ngb-rating>
+                                <h2>{{product.reviewsList[0].rating}}/5</h2>
+                            </div>  
+                        <!-- </tr>			 -->
+                        <div *ngIf="product?.reviewsList.length==1;else review">
+                            <span class="review-no">{{product?.reviewsList.length}} review</span>
+                         </div>   
+							<ng-template #review>
+                                <span class="review-no">{{product?.reviewsList.length}} reviews</span>
+                            </ng-template>
+                </div> 					
+       </tr>
+</div>
+ <app-stats [ngClass]="token == null ? 'status' : 'app-stats'"></app-stats>

@@ -1,0 +1,56 @@
+.products{
+    position: relative;
+    top:60%;
+    left:0%;
+  }
+mat-icon{
+    transform: scale(2);
+    margin: 50px;
+    position: relative;
+    left:50%;
+}
+@media (max-width:768px) {
+    mat-icon{
+        margin: 10px;
+    }
+}
+h1{
+    color: rgba(230, 186, 9, 0.942);
+    position: absolute;
+    left: 20%;
+    bottom: 5%;
+}
+
+.product{
+    position: absolute;
+    left:40%;
+}
+@media (max-width:768px) {
+    .product{
+      position: absolute;
+      right: 30%;
+      margin-right: 60%;
+    } 
+}
+.review{
+    position: absolute;
+    left:60%
+}
+@media (max-width:768px) {
+    .review{
+      position: absolute;
+      right: 10%;
+      margin-left: 10%;
+    } 
+}
+.users{
+    position: absolute;
+    left:20%;
+}
+@media (max-width:768px) {
+    .users{
+      position: absolute;
+      right: 60%;
+      margin-right: 90%;
+    } 
+}

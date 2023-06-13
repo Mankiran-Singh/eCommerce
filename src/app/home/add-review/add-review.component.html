@@ -1,0 +1,23 @@
+<form [formGroup]="reviewForm" (ngSubmit)="addReview(id)">
+    <div class="mb-3">
+      <label class="form-label">Name</label>
+      <input type="text" class="form-control" formControlName="name"
+      [ngClass]="{'input-border':name && name.invalid && (name.errors?.['required'] && showErrors) || ((name.dirty || name.touched) && name.errors?.['pattern'])}">
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Detail</label>
+      <input type="text" class="form-control" formControlName="detail"
+      [ngClass]="{'input-border':detail && detail.invalid && (detail.errors?.['required'] && showErrors) || ((detail.dirty || detail.touched) && detail.errors?.['pattern'])}">
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Heading</label>
+        <input type="text" class="form-control" formControlName="heading"
+        [ngClass]="{'input-border':heading && heading.invalid && (heading.errors?.['required'] && showErrors) || ((heading.dirty || heading.touched) && heading.errors?.['pattern'])}">
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Rating</label>
+        <input type="number" class="form-control" formControlName="rating" oninput="this.value = this.value.replace(/[^0-9]/g, '')"
+        [ngClass]="{'input-border':rating && rating.invalid && (rating.errors?.['required'] && showErrors)}">
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>

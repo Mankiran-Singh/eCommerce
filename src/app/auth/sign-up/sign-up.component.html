@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Slide Navbar</title>
+</head>
+<body>
+	<div class="main">  	
+		<input type="checkbox" id="chk" aria-hidden="true">
+
+			<div class="signup">
+				<form [formGroup]="signUpForm" (ngSubmit)="SignUp()">
+				     	<label for="chk" aria-hidden="true">Sign up</label>
+                        <input type="text" name="firstName" placeholder="First Name" formControlName="firstname"
+					     [ngClass]="{'input-border':firstname && firstname.invalid && (firstname.errors?.['required'] && showErrors) || ((firstname.dirty || firstname.touched) && firstname.errors?.['pattern'])}">
+                       
+						<input type="text" name="lastName" placeholder="Last Name" formControlName="lastname"
+						 [ngClass]="{'input-border':firstname && firstname.invalid && (firstname.errors?.['required'] && showErrors) || ((firstname.dirty || firstname.touched) && firstname.errors?.['pattern'])}">
+					   
+						<input type="email" name="email" placeholder="Email" formControlName="email" 
+						 [ngClass]="{'input-border':email && email.invalid && (email.errors?.['required'] && showErrors) || ((email.dirty || email.touched) && email.errors?.email)}">
+					    
+
+						 <input [type]="changetype?'password':'text'" placeholder="password" name="password" formControlName="pass" [ngClass]="{'input-border':pass && pass.invalid && (pass.errors?.['required'] && showErrors) || ((pass.dirty || pass.touched) && pass.errors?.['pattern']) || signUpForm.errors?.['passwordMismatch'] }">
+                         <span [ngClass]="showErrors?'eyeicon1':'eyeicon'" (click)="viewpass()"><i [ngClass]="visible?'fa fa-eye':'fa fa-eye-slash'" style="padding: 0px;"></i></span>
+                       
+                         <input type="password" name="confirmPassword" placeholder="Confirm Password" formControlName="confirmPassword" [ngClass]="{'input-border':confirmPassword && confirmPassword.invalid && (confirmPassword.errors?.['required'] && showErrors) || signUpForm.errors?.['passwordMismatch']}">
+						
+						 <!-- <span class="confirm" *ngIf="signUpForm.errors?.['passwordMismatch']">*Password does'nt match</span> -->
+					    <button type="submit">Sign up</button>
+				</form>
+			</div>
+	</div>
+</body>
+</html>

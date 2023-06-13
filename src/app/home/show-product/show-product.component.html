@@ -1,0 +1,97 @@
+<html lang="en">
+  <head>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>eCommerce Product Detail</title>
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet">
+
+  </head>
+
+  <body>
+	
+	<div class="container">
+		<div class="card">
+			<div class="container-fliud">
+				<div class="wrapper row">
+					<div class="preview col-md-6">
+						
+						<div class="preview-pic tab-content">
+						  <div class="tab-pane active" id="pic-1"><img [src]="product?.image" /></div>
+						</div>
+						
+					</div>
+					<div class="details col-md-6">
+						<h3 class="product-title">{{product?.brand}} <small>{{product?.productCode}}</small></h3>
+                        <h4 class="product-title">{{product.name}}</h4>
+						<div class="rating">
+							<div class="stars">
+                                <div class="d-flex justify-content-between align-items-center pt-1">
+                                    <ngb-rating [max]="5" [(rate)]="average" (hover)="hovered=$event" (leave)="hovered=0" #rating></ngb-rating>
+                                    <h2>{{average}}/5</h2>
+                                </div> 
+							</div>
+                         <div *ngIf="product.length==1;else review">
+                            <span class="review-no">{{product.length}} review</span>
+                         </div>   
+							<ng-template #review>
+                                <span class="review-no">{{product.length}} reviews</span>
+                            </ng-template>
+						</div>
+						<p class="product-description">{{product.description}}</p>
+						<h4 class="price">current price: ₹ {{product.price}}<span></span></h4>
+					</div>
+					<button class="btn btn-warning" (click)="openAddReview()">Add review</button>
+					<div *ngIf="show">
+						<app-add-review [pro_id]="product.id"></app-add-review>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	
+
+
+	<div class="review-list">
+        <ul>
+            <li *ngFor="let reviewList of arrayProduct">
+                <div class="d-flex">
+                    <div class="left">
+                        <span>
+                            <img src="https://bootdey.com/img/Content/avatar/avatar1.png" class="profile-pict-img img-fluid" alt="" />
+                        </span>
+                    </div>
+                    <div class="right">
+                        <h4>
+                            {{reviewList.name}}
+                            <span class="gig-rating text-body-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1792 1792" width="15" height="15">
+                                    <path
+                                        fill="currentColor"
+                                        d="M1728 647q0 22-26 48l-363 354 86 500q1 7 1 20 0 21-10.5 35.5t-30.5 14.5q-19 0-40-12l-449-236-449 236q-22 12-40 12-21 0-31.5-14.5t-10.5-35.5q0-6 2-20l86-500-364-354q-25-27-25-48 0-37 56-46l502-73 225-455q19-41 49-41t49 41l225 455 502 73q56 9 56 46z"
+                                    ></path>
+                                </svg>
+                                {{reviewList.rating}}.0
+                            </span>
+                        </h4>
+                        <div class="country d-flex align-items-center">
+                            <span>
+                                <img class="country-flag img-fluid" src="https://bootdey.com/img/Content/avatar/avatar6.png" />
+                            </span>
+                            <div class="country-name font-accent">India</div>
+                        </div>
+                        <div class="review-description">
+							<h4>{{reviewList.heading}}</h4>
+                            <p>
+                                {{reviewList.detail}}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+  </body>
+</html>

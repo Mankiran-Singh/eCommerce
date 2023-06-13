@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Slide Navbar</title>
+</head>
+<body>
+	<div class="main">  	
+		<input type="checkbox" id="chk" aria-hidden="true">
+
+			<div class="signup">
+				<form [formGroup]="loginForm" (ngSubmit)="login()">
+                    <label for="chk" aria-hidden="true">Login</label>
+						<input type="email" name="email" placeholder="Email" formControlName="email" 
+						 [ngClass]="{'input-border':email && email.invalid && (email.errors?.['required'] && showErrors) || ((email.dirty || email.touched) && email.errors?.email)}">
+					    
+						 <input [type]="changetype?'password':'text'" placeholder="password" name="password" formControlName="pass" [ngClass]="{'input-border':pass && pass.invalid && pass.errors?.['required'] && showErrors || ((pass.dirty || pass.touched) && pass.errors?.['pattern'])}">
+                         <span [ngClass]="showErrors?'eyeicon1':'eyeicon'" (click)="viewpass()"><i [ngClass]="visible?'fa fa-eye':'fa fa-eye-slash'" style="padding: 0px;"></i></span>
+					    <button type="submit">LOGIN</button>
+				</form>
+			</div>
+	</div>
+</body>
+</html>

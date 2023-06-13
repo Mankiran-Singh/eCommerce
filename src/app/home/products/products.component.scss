@@ -1,0 +1,85 @@
+@media (max-width:768px) {
+    .container{
+      width: 70%;
+      height: 60%;
+      position: relative;
+      right: 5%;
+    }
+  }
+  .container{
+    margin-bottom:10%;
+    margin-left:5%;
+  }
+  .btn-warning{
+     position: relative;
+     left:40%;
+  }
+  ngb-rating {
+    color: #FFC107;
+    font-size: 20px;
+    position: relative;
+    left: 30%;
+}
+.cont {
+    width: 93%;
+    max-width: 350px;
+    text-align: center;
+    margin: 4% auto;
+    padding: 30px 0;
+    background: #111;
+    color: #EEE;
+    border-radius: 5px;
+    border: thin solid #444;
+    overflow: hidden;
+  }
+  
+  div.stars {
+    width: 270px;
+    display: inline-block;
+  }
+  
+  
+.input-text:focus{
+  box-shadow: 0px 0px 0px;
+  border-color:#f8c146;
+  outline: 0px;
+}
+.form-control {
+  border: 1px solid #f8c146;
+}
+.row{
+  position:relative;
+  bottom: 20%;
+}
+.container{
+  display: flex;
+  flex-wrap: wrap;
+}
+.card{
+  width: 25%; /* Each product card occupies 50% of the container width */
+  box-sizing: border-box;
+}
+.search{
+  margin-top:12%;
+  position: relative;
+  left:20%;
+}
+.form-control{
+  width: 10%;
+}
+app-stats{
+  position: absolute;
+  right:8%;
+  bottom:0%;
+  width: 100%;
+  margin-bottom: 0%;
+}
+.status{
+  position: absolute;
+  bottom:30%;
+  width: 100%;
+  margin-bottom: 10%;
+}
+img{
+  height: 110px;
+}
