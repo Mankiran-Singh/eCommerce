@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { HotToastClose, HotToastService } from '@ngneat/hot-toast';
-import { AuthService } from 'src/app/services/auth.service';
-import { token } from 'src/app/file/constant';
+import { HotToastService } from '@ngneat/hot-toast';
+import { AuthService } from './../../services/auth.service';
+import { token } from './../../file/constant';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -42,8 +42,12 @@ export class LoginComponent {
           console.log("====>",res)
           this.loginForm.reset();
           localStorage.setItem("token",token)
-          console.log(res);
-          this.router.navigate(['/home'],{queryParams:{firstname:res.firstname}});
+          if(res.admin==true){
+              localStorage.setItem("admin",res.admin)
+              this.router.navigate(['/home/admin'])
+          }else{
+            this.router.navigate(['/home'],{queryParams:{firstname:res.firstname}});
+          }
         }
       );
     }else{
@@ -58,7 +62,6 @@ export class LoginComponent {
  }
  visible = true;
    changetype =true;
- 
    viewpass(){
     this.visible = !this.visible;
     this.changetype = !this.changetype;

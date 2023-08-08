@@ -45,19 +45,23 @@ export class AuthService {
     return this.http.get(`http://localhost:8080/products/${id}`);
   }
 
-  getProductByCode(code:any){
-    return this.http.get(`http://localhost:8080/products/code/${code}`);
-  }
-
-  getProductByName(name:any){
-    return this.http.get(`http://localhost:8080/products/name/${name}`);
-  }
-
-  getProductByBrand(brand:any){
-    return this.http.get(`http://localhost:8080/products/brand/${brand}`);
+  getProductBySearch(search:any){
+    return this.http.get(`http://localhost:8080/getProductBySearch/${search}`);
   }
 
   addReview(id:any,data:any){
      return this.http.patch(`http://localhost:8080/products/addreview/${id}`,data);
+  }
+
+  getAllReviews(){
+     return this.http.get(this.url+'reviews')
+  }
+  
+  deleteReview(id:any){
+    return this.http.delete(this.url+'reviews'+`/${id}`)
+  }
+
+  updateReview(id:any,data:any){
+    return this.http.patch(this.url+'reviews'+`/${id}`,data);
   }
 }

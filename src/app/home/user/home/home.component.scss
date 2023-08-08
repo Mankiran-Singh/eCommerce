@@ -345,17 +345,13 @@ h1{
   top: 2%;
   left:1%;
 }
-.link{
-  position: absolute;
-  left:35%;
-}
 a{
   color: #f8c146;
-  font-size: large;
+  font-size: medium;
 }
 h5{
   position: relative;
-  left:20%;
+  left:50%;
   color: #bd8a1d;
 }
 app-stats{
@@ -379,4 +375,7 @@ app-stats{
 select{
   background-color: #f8c146;
   border-radius: 50px;
+}
+.background{
+  background-image: url("/../assets/images.jpeg");
 }

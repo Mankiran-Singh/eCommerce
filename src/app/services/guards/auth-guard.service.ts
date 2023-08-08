@@ -11,7 +11,7 @@ export class AuthGuardService {
     const token=localStorage.getItem('token');
     if(token)
     {
-      this.router.navigate(['/home/home']);
+      this.router.navigate(['/home']);
       return false;
     }
     else

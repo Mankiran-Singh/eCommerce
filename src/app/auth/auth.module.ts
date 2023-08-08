@@ -8,6 +8,7 @@ import { RouterModule } from '@angular/router';
 import { HotToastModule } from '@ngneat/hot-toast';
 import { LoginComponent } from './login/login.component';
 import { AuthGuardService } from '../services/guards/auth-guard.service';
+import { CourseGuardService } from '../services/guards/course-guard.service';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,6 @@ import { AuthGuardService } from '../services/guards/auth-guard.service';
     AuthRoutingModule,
     HotToastModule.forRoot()
   ],
-  providers:[AuthService,AuthGuardService]
+  providers:[AuthService,AuthGuardService,CourseGuardService]
 })
 export class AuthModule { }

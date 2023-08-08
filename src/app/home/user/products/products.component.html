@@ -1,11 +1,15 @@
 <div class="search" *ngIf="token!==null" >
         <div class="col-md-6">  
-            <div class="input-group mb-3">
-               <input type="text" class="form-control input-text" placeholder="Search products... by id, name, brand" aria-label="Recipient's username" aria-describedby="basic-addon2" #myInput>
+            <div>
+               <form [formGroup]="searchForm" (ngSubmit)="searching()" class="input-group mb-3">
+                 <input type="text" class="form-control input-text" placeholder="Search products... by id, name, brand" aria-label="Recipient's username" aria-describedby="basic-addon2" formControlName="search">
+                 <button class="searchButton" type="submit"><mat-icon>search</mat-icon></button>
+                 <span *ngIf="search && search.invalid && search.errors?.['required'] && showErrors">No products to show</span>
+               </form>
             </div>   
         </div>
 </div>
-<div class="container">
+<div class="container" *ngIf="token!=null">
        <tr *ngFor="let product of arrayProducts;let i=index" class="card">
                 <div class="image-container">
                     <div class="first">   

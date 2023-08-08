@@ -27,12 +27,9 @@ export class HomeComponent {
   }
   logout(){
     localStorage.removeItem("token");
-    this.router.navigate(['/auth/login'])
+    //this.router.navigate(['/home'])
   }
-  signout(){
-    localStorage.removeItem("token");
-    this.router.navigate(['/auth/signUp'])
-  }
+
   goToLogin(){
     this.router.navigate(['/auth/login'])
   }

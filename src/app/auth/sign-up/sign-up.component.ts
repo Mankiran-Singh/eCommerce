@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { FormControl, FormGroup,Validators, ValidationErrors, ValidatorFn, AbstractControl} from '@angular/forms';
 import { Router,NavigationExtras } from '@angular/router';
 import { HotToastService } from '@ngneat/hot-toast';
-import { AuthService } from 'src/app/services/auth.service';
+import { AuthService } from './../../services/auth.service';
 import { token } from 'src/app/file/constant';
 @Component({
   selector: 'app-sign-up',
@@ -19,7 +19,9 @@ export class SignUpComponent {
       firstname:new FormControl('',[Validators.required,Validators.pattern('^[a-zA-Z ]*$')]),
       lastname:new FormControl('',[Validators.required,Validators.pattern('^[a-zA-Z ]*$')]),
       email:new FormControl('',[Validators.required, Validators.email]),
-      pass:new FormControl('',[Validators.required,Validators.minLength(8)]),
+      pass:new FormControl('',[Validators.required,  Validators.pattern(
+        /^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})/
+      ),Validators.minLength(8)]),
       confirmPassword:new FormControl('',Validators.required)
      },{ validators: this.passwordsMatchValidator });
    }
@@ -50,7 +52,6 @@ export class SignUpComponent {
         (res:any)=>{
           console.log("====>",res)
           this.signUpForm.reset();
-          localStorage.setItem("token",token);
           this.router.navigate(['/auth/login']);
         }
       );

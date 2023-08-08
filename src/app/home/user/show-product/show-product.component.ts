@@ -23,9 +23,9 @@ export class ShowProductComponent {
       this.product=data
       this.arrayProduct=decodedArray
       for(let i in this.arrayProduct){
-         this.sum+=this.arrayProduct[i].rating*1
-         this.average=this.sum/this.arrayProduct.length
-      }
+           this.sum+=this.arrayProduct[i].rating*1
+           this.average=this.sum/this.arrayProduct.length
+         }
    })
   }
 

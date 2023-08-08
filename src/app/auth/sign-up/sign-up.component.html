@@ -25,7 +25,7 @@
                        
                          <input type="password" name="confirmPassword" placeholder="Confirm Password" formControlName="confirmPassword" [ngClass]="{'input-border':confirmPassword && confirmPassword.invalid && (confirmPassword.errors?.['required'] && showErrors) || signUpForm.errors?.['passwordMismatch']}">
 						
-						 <!-- <span class="confirm" *ngIf="signUpForm.errors?.['passwordMismatch']">*Password does'nt match</span> -->
+						 <span class="confirm" *ngIf="signUpForm.errors?.['passwordMismatch']">*Password does'nt match</span>
 					    <button type="submit">Sign up</button>
 				</form>
 			</div>
